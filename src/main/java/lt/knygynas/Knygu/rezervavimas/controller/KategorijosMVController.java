@@ -45,6 +45,10 @@ public class KategorijosMVController {
     String rodytiVisasKategorijas(Model model){
         List<Kategorijos> visosKategorijos = kategorijosRepository.findAll();
         model.addAttribute("visosKategorijos", visosKategorijos);
+        if (visosKategorijos.size() == 0){
+            model.addAttribute("tekstas" , "sios kategorijos nera");
+            return "visos_kategorijos.html";
+        }
         return "visos_kategorijos.html";
     }
 

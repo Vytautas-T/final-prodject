@@ -75,6 +75,10 @@ public class AutoriaiMVController {
         model.addAttribute("autoriausKnygos", autorius.getAutoriausKnygos());
         model.addAttribute("autoriausVardas", autorius.getVardas());
         model.addAttribute("visiAutoriai", autoriusList);
+        if (autorius == null){
+            model.addAttribute("tekstas" ,"tokios autoriaus nera nera");
+            return "autoriaus_knygos.html";
+        }
         return "autoriaus_knygos.html";
     }
 

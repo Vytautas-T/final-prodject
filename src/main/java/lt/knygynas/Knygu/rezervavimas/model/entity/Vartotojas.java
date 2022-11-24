@@ -17,7 +17,6 @@ public class Vartotojas {
     private String lastName;
     @Column(unique = true)
     private String email;
-    private String username;
 
     private String password;
 
@@ -58,12 +57,11 @@ public class Vartotojas {
     public Vartotojas() {
     }
 
-    public Vartotojas(int id, String firstName, String lastName, String email, String username, String password, boolean ijungta, boolean tokenExpired, Collection<Roles> roles, Set<Knygos> vartotojoKnygos, Set<Rezervacijos> vartotojoRezervacijos, Set<Knygos> megstamosKnygos) {
+    public Vartotojas(int id, String firstName, String lastName, String email, String password, boolean ijungta, boolean tokenExpired, Collection<Roles> roles, Set<Knygos> vartotojoKnygos, Set<Rezervacijos> vartotojoRezervacijos, Set<Knygos> megstamosKnygos) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.ijungta = ijungta;
         this.tokenExpired = tokenExpired;
@@ -103,14 +101,6 @@ public class Vartotojas {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -176,7 +166,6 @@ public class Vartotojas {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", ijungta=" + ijungta +
                 ", tokenExpired=" + tokenExpired +
