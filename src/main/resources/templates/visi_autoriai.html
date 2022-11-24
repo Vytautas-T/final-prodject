@@ -18,6 +18,7 @@
         <div class="input-group">
             <div th:text="${tekstas}"></div>
             <form th:action="@{/aut/rasti_autoriu}" class="d-flex w-100" method="get">
+                <div th:text="${tekstas}"></div>
                 <input type="text"name="vardas" class="form-control" placeholder="Iveskite Autoriaus Varda?...">
                 <div class="input-group-append">
                     <button class="btn btn-secondary" type="submit">

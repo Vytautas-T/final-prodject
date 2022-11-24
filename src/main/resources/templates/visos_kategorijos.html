@@ -20,6 +20,7 @@
           <div class="input-group">
               <div th:text="${tekstas}"></div>
               <form th:action="@{/kat/rasti_pagal_kategorija}" class="d-flex w-100" method="get">
+                  <div th:text="${tekstas}"></div>
                   <input type="text"name="autoriausVardas" class="form-control" placeholder="veskite kategorijos pavadinim?...">
                   <div class="input-group-append">
                       <button class="btn btn-secondary" type="submit">

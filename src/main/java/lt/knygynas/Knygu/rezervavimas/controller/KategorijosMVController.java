@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -45,10 +46,6 @@ public class KategorijosMVController {
     String rodytiVisasKategorijas(Model model){
         List<Kategorijos> visosKategorijos = kategorijosRepository.findAll();
         model.addAttribute("visosKategorijos", visosKategorijos);
-        if (visosKategorijos.size() == 0){
-            model.addAttribute("tekstas" , "sios kategorijos nera");
-            return "visos_kategorijos.html";
-        }
         return "visos_kategorijos.html";
     }
 
