@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+  <meta charset="ISO-8859-1">
+  <title>Registracije</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <script src="javaScript.js"></script>
+</head>
+<body>
+<div th:insert="/fragments/header :: header"></div>
+<div th:insert="/fragments/navbar :: navbar"></div>
+<div class="container">
+  <h1 >Vartotojo registracije</h1>
+  <hr>
+  <h2>Įveskite Vartotojo duomenis</h2>
+
+  <form th:action="@{/vartotojas/idetas}" th:object="${vartotojas}" method="POST">
+    <p>Vardas</p>
+    <input th:field="*{firstName}" type="text"  placeholder="Jusu Vardas" class="form-control mb-4 col-4">
+    <p>Pavarde</p>
+    <input th:field="*{lastName}" type="text"  placeholder="Jusu Pavarde" class="form-control mb-4 col-4">
+    <p>Email</p>
+    <input th:field="*{email}" type="text"  placeholder="Jusu email" class="form-control mb-4 col-4">
+    <p>Slaptazodis</p>
+    <input th:field="*{password}" type="text"  placeholder="Slaptazodis" class="form-control mb-4 col-4">
+    <p>Kokia vatotojo role?</p>
+
+    <div>
+      <label>roles:
+        <input class="roles" type="checkbox" name="roles"
+               th:each="role : ${roles}"
+               th:text="${role.getPavadinimas}"
+               th:value="${role.getId}"
+               th:field="*{roles}"
+        />
+      </label>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-info col-2">registruotis</button>
+
+  </form>
+
+  <hr>
+
+  <br>
+  <div th:insert="/fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

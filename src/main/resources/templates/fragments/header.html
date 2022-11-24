@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="ISO-8859-1">
+<title>header</title>
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<script src="javaScript.js"></script>
+</head>
+<body>
+    <div th:fragment="header" class="header"><h1>knygu aplikacijos header</h1>
+        <div class="varWarp">
+            <div th:text="vardas"><p>vardas <span th:text></span>></span></p></div>
+            <div th:tetx="pavarde"><p>pavarde</p></div>
+        </div>
+</div>
+</body>
+</html>

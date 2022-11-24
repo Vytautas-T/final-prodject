@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Kategorijos knygos</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <script src="javaScript.js"></script>
+</head>
+<body>
+    <div th:insert="/fragments/header :: header"></div>
+    <div th:insert="/fragments/navbar :: navbar"></div>
+    <div th:insert="/fragments/katNavbar :: katNavbar"></div>
+<h2 th:text="${kategorijosPavadinimas}"></h2>
+    <input type="hidden" th:field="*{id}">
+    <input type="hidden" th:field="*{pavadinimas}">
+<div th:each="knyga : ${kategorijosKnygos}" class="list-group">
+    <a th:text="${knyga.getPavadinimas()}" th:href="@{/knyg/rasti_knyga(pavadinimas=${knyga.getPavadinimas()})}" class="list-group-item list-group-item-action"></a></div>
+<br>
+    <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{'/kat/admin/redaguoti_kategorija/' + ${id}}" method="get">
+        <input type="submit" value="Redaguoti kategorija">
+    </form>
+    <br>
+    <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{'/kat/admin/istrinti_kategorija/' + ${id}}" method="post">
+        <input type="submit" value="Ištrinti kategorija">
+    </form>
+<div th:insert="/fragments/footer :: footer"></div>
+</body>
+</html>

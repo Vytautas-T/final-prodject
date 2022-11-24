@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <script src="javaScript.js"></script>
+</head>
+<body>
+<div th:insert="/fragments/header :: header"></div>
+<div th:insert="/fragments/navbar :: navbar"></div>
+<div th:insert="/fragments/autNavbar :: autNavbar"></div>
+<div class="container d-flex flex-column  align-items-center">
+    <div class="row col-8">
+        <div class="input-group">
+            <form th:action="@{/aut/rasti_autoriu}" class="d-flex w-100" method="get">
+                <input type="text"name="vardas" class="form-control" placeholder="Iveskite Autoriaus Varda?...">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">
+                        Ieskoti
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<p class="mt-4 text-center">Iveskite autoriaus Varda</p>
+<div th:each="autorius : ${VisiAutoriai}" class="list-group">
+    <a th:text="${autorius.getVardas}" th:href="@{/aut/rodyti_autoriu/(id=${autorius.getId()})}" class="list-group-item list-group-item-action"></a>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

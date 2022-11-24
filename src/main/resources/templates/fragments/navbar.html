@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+  <meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+<script src="javaScript.js"></script>
+</head>
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <a class="navbt" th:href="@{/}">Home</a>
+        <a class="navbt" th:href="@{/knyg/admin/knygos_idejimas}">Ideti knyga</a>
+        <a class="navbt" th:href="@{/knyg/visos_knygos}">Ieskoti Knygos</a>
+        <a class="navbt" th:href="@{/kat/visos_kategorijos}">Kategorijos</a>
+        <a class="navbt" th:href="@{/aut/visi_autoriai}">Autoriai</a>
+    </div>
+</body>
+</html>

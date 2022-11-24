@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <script src="javaScript.js"></script>
+</head>
+<body>
+   <div th:insert="fragments/header :: header"></div>
+   <div th:insert="fragments/navbar :: navbar"></div>
+   <div class="container d-flex flex-column  align-items-center">
+    <div class="row col-8">
+      <div class="input-group">
+        <form th:action="@{/knyg/rasti_knygas2}" class="d-flex w-100" method="get">
+          <input type="text"name="pavadinimas" class="form-control" placeholder="Įveskite knygos pavadinimą...">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="submit">
+              Ieškoti
+             </button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <p class="mt-4 text-center">Įveskite pavadinimą, knygos, kurio norite ieškoti.</p>
+  </div>
+</body>
+</html>
