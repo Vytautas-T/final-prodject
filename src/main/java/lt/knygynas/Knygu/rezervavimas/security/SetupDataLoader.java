@@ -20,7 +20,7 @@ import java.util.List;
 @Component
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
-    boolean alreadySetup = true;
+    boolean alreadySetup = false;
 
     @Autowired
     private VartotojoRepository vartotojoRepository;
@@ -49,20 +49,20 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
       Roles adminRole = rolesRepository.findByPavadinimas("ROLE_ADMIN");
        Vartotojas vartotojasADMIN = new Vartotojas();
-       vartotojasADMIN.setFirstName("vardas");
-       vartotojasADMIN.setLastName("pavarde");
-       vartotojasADMIN.setPassword(passwordEncoder.encode("qwe"));
-       vartotojasADMIN.setEmail("asd");
+       vartotojasADMIN.setFirstName("Admin");
+       vartotojasADMIN.setLastName("admin");
+       vartotojasADMIN.setPassword(passwordEncoder.encode("pass"));
+       vartotojasADMIN.setEmail("admin");
        vartotojasADMIN.setRoles(Arrays.asList(adminRole));
        vartotojasADMIN.setIjungta(true);
        vartotojoRepository.save(vartotojasADMIN);
 
        Roles userRole = rolesRepository.findByPavadinimas("ROLE_USER");
        Vartotojas vartotojasUSER = new Vartotojas();
-       vartotojasUSER.setFirstName("vv");
-       vartotojasUSER.setLastName("pp");
-       vartotojasUSER.setEmail("qwe");
-       vartotojasUSER.setPassword(passwordEncoder.encode("asd"));
+       vartotojasUSER.setFirstName("userName");
+       vartotojasUSER.setLastName("userSurname");
+       vartotojasUSER.setEmail("user");
+       vartotojasUSER.setPassword(passwordEncoder.encode("pass"));
        vartotojasUSER.setRoles(Arrays.asList(userRole));
        vartotojasUSER.setIjungta(true);
        vartotojoRepository.save(vartotojasUSER);
